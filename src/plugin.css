@@ -1,0 +1,127 @@
+/**
+ * css for videojs-seek-buttons
+ * With the default plugins for postcss you can
+ * - @import files, they will be inlined during build
+ * - not worry about browser prefixes, they will be handled
+ * - nest selectors. This follows the css specification that is
+ *   currently out on some browsers. See https://tabatkins.github.io/specs/css-nesting/
+ * - custom properties (aka variables) via the var(--var-name) syntax. See
+ *   https://www.w3.org/TR/css-variables-1/
+ */
+
+
+/* Note: all vars must be defined here, there are no "local" vars */
+@font-face {
+  font-family: 'seek';
+  src:  url('../fonts/seek.eot?w9gg5g');
+  src:  url('../fonts/seek.eot?w9gg5g#iefix') format('embedded-opentype'),
+  url('../fonts/seek.ttf?w9gg5g') format('truetype'),
+  url('../fonts/seek.woff?w9gg5g') format('woff'),
+  url('../fonts/seek.svg?w9gg5g#seek') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="seek-"], [class*=" seek-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'seek' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.video-js.vjs-seek-buttons .vjs-seek-button {
+  cursor: pointer;
+  font-family: 'seek' !important;
+  color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-size: 2.75em;
+  line-height: 1;
+  margin-top: -1.5em;
+  margin-left: -1.5em;
+  height: 80px;
+  background: rgba(43,51,63,.7);
+  border-radius: 50%;
+  width: 80px;
+}
+.video-js .vjs-seek-button:focus{
+  background-color: rgba(115,133,159,.5);
+}
+
+.video-js.vjs-seek-buttons .skip-forward{
+  left: 65%;
+  margin-left: 0;
+}
+.video-js.vjs-seek-buttons .skip-back{
+  left: 30%;
+}
+
+.video-js.vjs-seek-buttons .skip-forward > .vjs-icon-placeholder::before{
+  content: '\e900';
+}
+
+.video-js.vjs-seek-buttons .skip-back > .vjs-icon-placeholder::before{
+  content: '\e907';
+}
+
+/*second specific icons*/
+
+.video-js.vjs-seek-buttons .skip-forward.skip-5 > .vjs-icon-placeholder::before{
+  content: '\e901';
+}
+
+.video-js.vjs-seek-buttons .skip-back.skip-5 > .vjs-icon-placeholder::before{
+  content: '\e904';
+}
+
+.video-js.vjs-seek-buttons .skip-forward.skip-10 > .vjs-icon-placeholder::before{
+  content: '\e902';
+}
+
+.video-js.vjs-seek-buttons .skip-back.skip-10 > .vjs-icon-placeholder::before{
+  content: '\e905';
+}
+
+.video-js.vjs-seek-buttons .skip-forward.skip-30 > .vjs-icon-placeholder::before{
+  content: '\e903';
+}
+
+.video-js.vjs-seek-buttons .skip-back.skip-30 > .vjs-icon-placeholder::before{
+  content: '\e906';
+}
+
+.vjs-controls-disabled .vjs-seek-button,
+.vjs-error .vjs-seek-button,
+.vjs-has-started .vjs-seek-button,
+.vjs-using-native-controls .vjs-seek-button{
+  display: none;
+}
+
+.vjs-has-started.vjs-paused .vjs-seek-button{
+  display: block;
+}
+
+@media screen and (max-width: 480px){
+    .video-js.vjs-seek-buttons .vjs-seek-button{
+        font-size:16px;
+        height: 50px;
+        width: 50px;
+    }
+
+    .video-js.vjs-seek-buttons .skip-back{
+        left: 20%;
+    }
+
+    .video-js.vjs-seek-buttons .skip-forward {
+        left: 70%;
+    }
+}
