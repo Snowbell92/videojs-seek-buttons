@@ -1,6 +1,6 @@
 # videojs-seek-buttons
 
-adds a backword and forward button on the player surface to seek 
+adds a backword and forward button on the player surface to seek. it does not add any button on controlbar.
 
 ## Table of Contents
 
